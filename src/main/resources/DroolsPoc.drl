@@ -1,0 +1,15 @@
+import com.poc.drools.DroolsVariables
+
+rule "Defines PERFIL_2 for score > 50 or requestedAmount > 10000 or vehicleValue > 20000"
+    when
+        droolsVariables : DroolsVariables(score > 50 || requestedAmount > 10000 || vehicleValue > 20000);
+    then
+        droolsVariables.defineResult("PERFIL_2");
+end;
+
+rule "Defines PERFIL_1 for score < 50 e requestedAmount < 10000 e vehicleValue < 20000"
+    when
+        droolsVariables : DroolsVariables(score < 50 && requestedAmount < 10000 && vehicleValue < 20000);
+    then
+        droolsVariables.defineResult("PERFIL_1");
+end;
